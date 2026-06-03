@@ -3,34 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IFAI プロモーションムービー 絵コンテ v3</title>
+    <title>IFAI 絵コンテ v5 | 画像確認・FBページ</title>
     <meta
       name="description"
-      content="IFAIプロモーションムービー新演出案。怪しい入口から、AIが市場情報を一気に分かりやすくするドット絵絵コンテ。"
+      content="IFAIプロモーションムービー新演出案。10枚の絵コンテを確認しながら、その場でフィードバックを書ける共有ページ。"
     />
-    <meta property="og:title" content="IFAI プロモーションムービー 絵コンテ v3" />
+    <meta property="og:title" content="IFAI 絵コンテ v5" />
     <meta
       property="og:description"
-      content="怪しいと思ったら、めっちゃ分かりやすい。AIキャラクターが市場情報を解体する演出案。"
+      content="怪しい入口から、分かりやすいAIへ。画像で確認できるIFAIプロモーションムービー絵コンテ。"
     />
-    <meta property="og:image" content="./assets/clear-mystery.png" />
+    <meta property="og:image" content="./assets/storyboard-v5-sheet.png" />
     <style>
       :root {
         color-scheme: dark;
         --bg: #07070c;
-        --ink: #f4efe4;
-        --muted: #a8a196;
-        --dim: #575160;
+        --ink: #f6efe2;
+        --muted: #a9a297;
+        --dim: #655f69;
         --panel: #11121a;
         --panel-2: #171821;
-        --line: #393448;
+        --line: rgba(246, 239, 226, 0.16);
         --cream: #f2dcc2;
         --green: #9bd6ad;
         --cyan: #83d8d4;
-        --red: #e7232f;
-        --yellow: #d2c15d;
-        --shadow: rgba(0, 0, 0, 0.52);
-        --font: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+        --red: #ef2636;
+        --yellow: #d9c96a;
+        --shadow: rgba(0, 0, 0, 0.54);
+        --font:
+          "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
       }
 
       * {
@@ -48,11 +49,28 @@
         font-family: var(--font);
         background:
           linear-gradient(rgba(131, 216, 212, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(131, 216, 212, 0.025) 1px, transparent 1px),
-          radial-gradient(circle at 78% 10%, rgba(231, 35, 47, 0.13), transparent 22rem),
-          radial-gradient(circle at 8% 18%, rgba(131, 216, 212, 0.1), transparent 24rem),
+          linear-gradient(
+            90deg,
+            rgba(131, 216, 212, 0.025) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 72% 16%,
+            rgba(239, 38, 54, 0.18),
+            transparent 24rem
+          ),
+          radial-gradient(
+            circle at 12% 32%,
+            rgba(155, 214, 173, 0.12),
+            transparent 22rem
+          ),
           #07070c;
-        background-size: 12px 12px, 12px 12px, auto, auto, auto;
+        background-size:
+          12px 12px,
+          12px 12px,
+          auto,
+          auto,
+          auto;
         letter-spacing: 0;
         overflow-x: hidden;
       }
@@ -61,19 +79,22 @@
         color: inherit;
       }
 
-      img,
-      video {
+      img {
         display: block;
+        width: 100%;
         max-width: 100%;
       }
 
-      figure {
-        margin: 0;
+      button,
+      textarea,
+      input,
+      select {
+        font: inherit;
       }
 
       .wrap {
         width: calc(100% - 36px);
-        max-width: 1180px;
+        max-width: 1240px;
         margin: 0 auto;
       }
 
@@ -81,16 +102,16 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        border-bottom: 1px solid rgba(242, 220, 194, 0.12);
-        background: rgba(7, 7, 12, 0.86);
+        border-bottom: 1px solid var(--line);
+        background: rgba(7, 7, 12, 0.9);
         backdrop-filter: blur(12px);
       }
 
       .topbar-inner {
         display: flex;
+        min-height: 56px;
         align-items: center;
         justify-content: space-between;
-        min-height: 56px;
         gap: 18px;
       }
 
@@ -98,25 +119,24 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        font-size: 13px;
-        font-weight: 900;
         color: var(--cream);
+        font-size: 13px;
+        font-weight: 950;
         white-space: nowrap;
       }
 
       .brand-mark {
         display: grid;
+        width: 26px;
+        height: 26px;
         place-items: center;
-        width: 25px;
-        height: 25px;
         border: 1px solid var(--cream);
         background: #050508;
-        box-shadow: 3px 3px 0 rgba(231, 35, 47, 0.7);
+        box-shadow: 3px 3px 0 rgba(239, 38, 54, 0.74);
       }
 
       nav {
         display: flex;
-        align-items: center;
         gap: 6px;
         overflow-x: auto;
       }
@@ -126,7 +146,7 @@
         border: 1px solid transparent;
         color: var(--muted);
         font-size: 12px;
-        font-weight: 800;
+        font-weight: 850;
         text-decoration: none;
         white-space: nowrap;
       }
@@ -134,31 +154,21 @@
       nav a:hover {
         border-color: rgba(131, 216, 212, 0.35);
         color: var(--ink);
-        background: rgba(131, 216, 212, 0.06);
+        background: rgba(131, 216, 212, 0.07);
       }
 
       .hero {
         min-height: calc(100vh - 56px);
-        padding: 58px 0 42px;
+        padding: 54px 0 46px;
         display: grid;
         align-items: center;
       }
 
       .hero-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-        gap: 24px;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 28px;
         align-items: end;
-      }
-
-      .hero-grid > *,
-      .hero-copy {
-        min-width: 0;
-        max-width: 100%;
-      }
-
-      .hero-copy {
-        padding-bottom: 8px;
       }
 
       .eyebrow {
@@ -168,39 +178,39 @@
         margin-bottom: 18px;
         color: var(--green);
         font-size: 13px;
-        font-weight: 900;
+        font-weight: 950;
       }
 
       .signal {
-        width: 9px;
-        height: 9px;
+        width: 10px;
+        height: 10px;
         background: var(--red);
-        box-shadow: 0 0 0 5px rgba(231, 35, 47, 0.16), 0 0 20px rgba(231, 35, 47, 0.8);
+        box-shadow:
+          0 0 0 5px rgba(239, 38, 54, 0.16),
+          0 0 18px rgba(239, 38, 54, 0.9);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
       }
 
       h1 {
-        margin: 0;
         max-width: 760px;
-        font-size: clamp(42px, 7vw, 92px);
+        font-size: clamp(46px, 7vw, 96px);
         line-height: 0.98;
         font-weight: 950;
-        overflow-wrap: anywhere;
       }
 
       .lead {
-        width: 100%;
-        max-width: 720px;
-        margin: 22px 0 0;
+        max-width: 650px;
+        margin-top: 22px;
         color: var(--muted);
-        font-size: clamp(16px, 2vw, 22px);
+        font-size: clamp(16px, 1.9vw, 21px);
         font-weight: 800;
-        line-height: 1.72;
-        overflow-wrap: anywhere;
-        word-break: break-all;
-      }
-
-      .lead-line {
-        display: block;
+        line-height: 1.78;
       }
 
       .hero-actions {
@@ -212,428 +222,224 @@
 
       .button {
         display: inline-flex;
+        min-height: 42px;
         align-items: center;
         justify-content: center;
-        min-height: 42px;
         padding: 10px 14px;
-        border: 1px solid rgba(242, 220, 194, 0.28);
-        background: rgba(17, 18, 26, 0.74);
+        border: 1px solid rgba(246, 239, 226, 0.28);
+        background: rgba(17, 18, 26, 0.78);
         color: var(--ink);
         font-size: 13px;
-        font-weight: 900;
+        font-weight: 950;
         text-decoration: none;
         box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+        cursor: pointer;
       }
 
       .button.primary {
-        border-color: rgba(231, 35, 47, 0.7);
+        border-color: rgba(239, 38, 54, 0.75);
         background: var(--red);
         color: #fff;
       }
 
-      .hero-image {
-        position: relative;
-        border: 1px solid rgba(242, 220, 194, 0.2);
+      .button.alt {
+        border-color: rgba(155, 214, 173, 0.35);
+      }
+
+      .hero-sheet {
+        border: 1px solid rgba(246, 239, 226, 0.2);
         background: #050508;
-        box-shadow: 0 24px 70px var(--shadow), 8px 8px 0 rgba(231, 35, 47, 0.36);
+        box-shadow:
+          0 24px 70px var(--shadow),
+          8px 8px 0 rgba(239, 38, 54, 0.34);
       }
 
-      .hero-image::before {
-        content: "";
-        position: absolute;
-        inset: 10px;
-        border: 1px solid rgba(131, 216, 212, 0.26);
-        pointer-events: none;
-      }
-
-      .hero-image img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
+      .hero-sheet img {
+        aspect-ratio: 1983 / 793;
         object-fit: cover;
       }
 
-      .dialogue {
-        position: relative;
-        margin-top: 12px;
-        padding: 16px 18px 17px;
-        border: 1px solid rgba(242, 220, 194, 0.34);
-        background: rgba(5, 5, 8, 0.92);
-        color: var(--cream);
-        font-size: 15px;
-        font-weight: 850;
-        line-height: 1.75;
-        overflow-wrap: anywhere;
-      }
-
-      .dialogue::after {
-        content: "";
-        position: absolute;
-        right: 22px;
-        bottom: 10px;
-        width: 0;
-        height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-top: 10px solid var(--cream);
-        opacity: 0.78;
-      }
-
       section {
-        padding: 58px 0;
-        border-top: 1px solid rgba(242, 220, 194, 0.1);
+        padding: 60px 0;
+        border-top: 1px solid rgba(246, 239, 226, 0.1);
       }
 
       .section-head {
         display: flex;
         align-items: end;
         justify-content: space-between;
-        gap: 22px;
+        gap: 24px;
         margin-bottom: 22px;
       }
 
       h2 {
-        margin: 0;
         color: var(--cream);
-        font-size: clamp(26px, 4vw, 44px);
-        line-height: 1.14;
+        font-size: clamp(28px, 4vw, 46px);
+        line-height: 1.12;
         font-weight: 950;
       }
 
       .note {
         width: 100%;
-        max-width: 620px;
-        margin: 0;
+        max-width: 660px;
         color: var(--muted);
         font-size: 14px;
-        font-weight: 760;
+        font-weight: 780;
         line-height: 1.75;
-        overflow-wrap: anywhere;
-        word-break: break-all;
       }
 
-      .note-line {
-        display: block;
+      .sheet-frame {
+        border: 1px solid rgba(246, 239, 226, 0.18);
+        background: #050508;
+        box-shadow: 0 18px 58px rgba(0, 0, 0, 0.32);
       }
 
-      .keyframes {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-      }
-
-      .frame {
-        border: 1px solid rgba(242, 220, 194, 0.18);
-        background: rgba(17, 18, 26, 0.68);
-        box-shadow: 0 18px 52px rgba(0, 0, 0, 0.28);
-      }
-
-      .frame img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
+      .sheet-frame img {
+        aspect-ratio: 1983 / 793;
         object-fit: cover;
       }
 
-      .frame figcaption {
-        margin: 0;
-        padding: 14px 15px 16px;
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 780;
-        line-height: 1.65;
-      }
-
-      .frame strong {
-        display: block;
-        margin-bottom: 5px;
-        color: var(--ink);
-        font-size: 15px;
-      }
-
-      .rules {
+      .feedback-shell {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 18px;
+        align-items: start;
       }
 
-      .review-grid {
+      .cut-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
       }
 
-      .review-card {
-        padding: 17px;
-        border: 1px solid rgba(242, 220, 194, 0.18);
+      .cut-card {
+        border: 1px solid rgba(246, 239, 226, 0.16);
         background:
-          linear-gradient(135deg, rgba(131, 216, 212, 0.1), transparent 44%),
+          linear-gradient(135deg, rgba(239, 38, 54, 0.08), transparent 42%),
           rgba(17, 18, 26, 0.74);
       }
 
-      .review-no {
-        display: inline-flex;
-        margin-bottom: 13px;
-        padding: 5px 8px;
-        background: var(--red);
-        color: #fff;
-        font-size: 12px;
-        font-weight: 950;
-      }
-
-      .review-card h3 {
-        margin: 0 0 9px;
-        color: var(--cream);
-        font-size: 22px;
-        line-height: 1.3;
-      }
-
-      .review-card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 760;
-        line-height: 1.7;
-      }
-
-      .answer-scale {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        margin-top: 14px;
-      }
-
-      .answer-scale span {
-        display: grid;
-        place-items: center;
-        min-height: 30px;
-        border: 1px solid rgba(155, 214, 173, 0.24);
-        color: var(--green);
-        background: rgba(8, 13, 13, 0.72);
-        font-size: 11px;
-        font-weight: 900;
-        text-align: center;
-      }
-
-      .mini-guide {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 14px;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 850;
-      }
-
-      .mini-guide b,
-      .mini-guide span {
-        display: inline-flex;
-        align-items: center;
-        min-height: 31px;
-        padding: 6px 9px;
-        border: 1px solid rgba(242, 220, 194, 0.16);
-        background: rgba(5, 5, 8, 0.72);
-      }
-
-      .mini-guide b {
-        color: var(--cream);
-        border-color: rgba(231, 35, 47, 0.45);
-      }
-
-      .rule {
-        padding: 16px;
-        border: 1px solid rgba(131, 216, 212, 0.2);
-        background: rgba(17, 18, 26, 0.74);
-      }
-
-      .rule b {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--green);
-        font-size: 14px;
-      }
-
-      .rule span {
-        display: block;
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 730;
-        line-height: 1.64;
-      }
-
-      .scenes {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-      }
-
-      .scene {
-        min-height: 214px;
-        padding: 15px;
-        border: 1px solid rgba(242, 220, 194, 0.16);
-        background:
-          linear-gradient(135deg, rgba(231, 35, 47, 0.08), transparent 42%),
-          rgba(17, 18, 26, 0.72);
-      }
-
-      .time {
-        display: inline-flex;
-        margin-bottom: 12px;
-        padding: 5px 8px;
-        border: 1px solid rgba(231, 35, 47, 0.62);
-        color: #fff;
-        background: rgba(231, 35, 47, 0.32);
-        font-size: 12px;
-        font-weight: 950;
-      }
-
-      .scene h3 {
-        margin: 0 0 9px;
-        color: var(--ink);
-        font-size: 19px;
-        line-height: 1.28;
-      }
-
-      .scene p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 740;
-        line-height: 1.68;
-        overflow-wrap: anywhere;
-      }
-
-      .quote {
-        margin-top: 12px;
-        color: var(--cream);
-        font-weight: 900;
-      }
-
-      .scene-ask {
-        margin-top: 13px !important;
-        padding-top: 12px;
-        border-top: 1px solid rgba(242, 220, 194, 0.12);
-        color: var(--green) !important;
-        font-weight: 850 !important;
-      }
-
-      .scene-ask b {
-        color: var(--cream);
-      }
-
-      .compare {
-        display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        gap: 18px;
-        align-items: center;
-      }
-
-      .compare img {
-        border: 1px solid rgba(242, 220, 194, 0.16);
+      .cut-image {
+        position: relative;
+        border-bottom: 1px solid rgba(246, 239, 226, 0.12);
         background: #050508;
       }
 
-      .copy-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
+      .cut-image img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+      }
+
+      .cut-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: 10px;
+        padding: 12px 13px 0;
       }
 
-      .copy-chip {
-        padding: 12px;
-        border: 1px solid rgba(155, 214, 173, 0.2);
-        background: rgba(8, 13, 13, 0.82);
+      .cut-title {
         color: var(--cream);
-        font-size: 13px;
-        font-weight: 900;
-        line-height: 1.5;
+        font-size: 16px;
+        font-weight: 950;
+        line-height: 1.3;
       }
 
-      .copy-chip span {
-        display: block;
-        margin-bottom: 5px;
+      .cut-time {
+        display: inline-flex;
+        padding: 5px 8px;
+        border: 1px solid rgba(239, 38, 54, 0.65);
+        background: rgba(239, 38, 54, 0.3);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 950;
+        white-space: nowrap;
+      }
+
+      .cut-form {
+        display: grid;
+        gap: 10px;
+        padding: 13px;
+      }
+
+      .cut-form label,
+      .summary-panel label {
+        display: grid;
+        gap: 6px;
         color: var(--green);
-        font-size: 11px;
+        font-size: 12px;
+        font-weight: 950;
       }
 
-      .feedback {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
+      select,
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid rgba(131, 216, 212, 0.22);
+        background: rgba(5, 5, 8, 0.82);
+        color: var(--ink);
+        border-radius: 0;
+        outline: none;
       }
 
-      .feedback-box {
-        padding: 18px;
-        border: 1px solid rgba(242, 220, 194, 0.18);
-        background: rgba(17, 18, 26, 0.74);
-      }
-
-      .feedback-box h3 {
-        margin: 0 0 12px;
-        color: var(--cream);
-        font-size: 20px;
-      }
-
-      .feedback-box ul {
-        margin: 0;
-        padding-left: 18px;
-        color: var(--muted);
-        font-size: 14px;
-        font-weight: 760;
-        line-height: 1.78;
-      }
-
-      .template-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-top: 18px;
-      }
-
-      .template-card {
-        padding: 18px;
-        border: 1px solid rgba(242, 220, 194, 0.18);
-        background: rgba(5, 5, 8, 0.72);
-      }
-
-      .template-card h3 {
-        margin: 0 0 12px;
-        color: var(--cream);
-        font-size: 20px;
+      select,
+      input {
+        min-height: 38px;
+        padding: 8px 10px;
       }
 
       textarea {
-        width: 100%;
-        min-height: 260px;
+        min-height: 94px;
         resize: vertical;
-        padding: 14px;
-        border: 1px solid rgba(131, 216, 212, 0.22);
-        background: #07070c;
-        color: var(--ink);
-        font-family: var(--font);
+        padding: 10px 11px;
         font-size: 13px;
         font-weight: 760;
-        line-height: 1.7;
+        line-height: 1.65;
       }
 
-      .copy-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 10px;
+      textarea:focus,
+      input:focus,
+      select:focus {
+        border-color: rgba(155, 214, 173, 0.68);
+        box-shadow: 0 0 0 3px rgba(155, 214, 173, 0.12);
       }
 
-      .copy-button {
-        min-height: 38px;
-        padding: 8px 12px;
-        border: 1px solid rgba(231, 35, 47, 0.72);
-        background: var(--red);
-        color: #fff;
-        font-family: var(--font);
+      .summary-panel {
+        position: sticky;
+        top: 76px;
+        display: grid;
+        gap: 12px;
+        padding: 16px;
+        border: 1px solid rgba(246, 239, 226, 0.18);
+        background: rgba(5, 5, 8, 0.88);
+        box-shadow: 0 18px 58px rgba(0, 0, 0, 0.32);
+      }
+
+      .summary-panel h3 {
+        color: var(--cream);
+        font-size: 21px;
+        line-height: 1.3;
+      }
+
+      .summary-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .summary-actions .button {
+        width: 100%;
+        min-height: 40px;
+        padding: 8px 10px;
         font-size: 12px;
-        font-weight: 950;
-        cursor: pointer;
       }
 
-      .copy-status {
+      .summary-output {
+        min-height: 260px;
+      }
+
+      .status {
+        min-height: 18px;
         color: var(--green);
         font-size: 12px;
         font-weight: 900;
@@ -646,27 +452,43 @@
         font-weight: 760;
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 980px) {
         .hero {
           min-height: auto;
         }
 
         .hero-grid,
-        .keyframes,
-        .compare,
-        .feedback,
-        .template-grid {
+        .feedback-shell {
           grid-template-columns: minmax(0, 1fr);
         }
 
-        .rules,
-        .review-grid,
-        .scenes {
-          grid-template-columns: 1fr 1fr;
+        .summary-panel {
+          position: static;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .wrap {
+          width: calc(100% - 24px);
         }
 
-        .copy-grid {
-          grid-template-columns: 1fr 1fr;
+        .topbar-inner {
+          flex-direction: column;
+          align-items: start;
+          padding: 10px 0;
+        }
+
+        nav {
+          width: 100%;
+        }
+
+        .hero {
+          padding-top: 42px;
+        }
+
+        .hero-actions,
+        .summary-actions {
+          display: grid;
         }
 
         .section-head {
@@ -676,58 +498,13 @@
         .note {
           margin-top: 10px;
         }
-      }
 
-      @media (max-width: 560px) {
-        .wrap {
-          width: calc(100% - 24px);
-          max-width: 1180px;
-        }
-
-        .topbar-inner {
-          align-items: start;
-          flex-direction: column;
-          padding: 10px 0;
-        }
-
-        nav {
-          width: 100%;
-        }
-
-        .rules,
-        .review-grid,
-        .scenes,
-        .copy-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-actions {
-          display: grid;
-        }
-
-        .answer-scale {
-          grid-template-columns: 1fr;
+        .cut-grid {
+          grid-template-columns: minmax(0, 1fr);
         }
 
         h1 {
-          font-size: 37px;
-        }
-
-        h1,
-        .lead,
-        .note,
-        .dialogue,
-        .hero-copy,
-        .hero-image,
-        .frame,
-        .compare,
-        .feedback-box,
-        .template-card,
-        .scene,
-        .rule,
-        .review-card,
-        .copy-chip {
-          max-width: calc(100vw - 24px);
+          font-size: 43px;
         }
       }
     </style>
@@ -735,14 +512,13 @@
   <body>
     <header class="topbar">
       <div class="wrap topbar-inner">
-        <div class="brand"><span class="brand-mark">F</span>IFAI 絵コンテ v3</div>
+        <div class="brand">
+          <span class="brand-mark">F</span>IFAI 絵コンテ v5
+        </div>
         <nav aria-label="ページ内メニュー">
-          <a href="#review-guide">FB方法</a>
-          <a href="#keyframes">キー絵</a>
-          <a href="#rules">画作り</a>
-          <a href="#storyboard">秒数</a>
-          <a href="#copy">コピー</a>
-          <a href="#feedback">FB欄</a>
+          <a href="#sheet">全体</a>
+          <a href="#cuts">CUT別FB</a>
+          <a href="#summary">まとめ</a>
         </nav>
       </div>
     </header>
@@ -750,291 +526,103 @@
     <main>
       <section class="hero">
         <div class="wrap hero-grid">
-          <div class="hero-copy">
-            <div class="eyebrow"><span class="signal"></span>怪しい入口から、分かりやすいAIへ</div>
-            <h1>怪しいと思ったら、<br />めっちゃ<br />分かりやすい。</h1>
+          <div>
+            <div class="eyebrow">
+              <span class="signal"></span>絵で確認して、そのままFB
+            </div>
+            <h1>IFAI<br />絵コンテ v5</h1>
             <p class="lead">
-              <span class="lead-line">UFOから落ちてきたIFAI。</span>
-              <span class="lead-line">一瞬あやしい。でもAIキャラクターが出てきた瞬間、</span>
-              <span class="lead-line">市況、銘柄、チャート、ニュースが整理される。</span>
-              <span class="lead-line">「生成AI時代の株の新しい地図」を見せる。</span>
+              怪しい入口から、分かりやすいAIへ。10枚の絵を見ながら、気になったCUTだけFBできます。
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#storyboard">絵コンテを見る</a>
-              <a class="button" href="#feedback">FBテンプレへ</a>
-              <a class="button" href="https://vimeo.com/reviews/cb0c817f-9d3a-4806-b368-cbe594e37c38/videos/1197648606">現動画レビュー</a>
-              <a class="button" href="https://karoooomecakes.wixsite.com/game">参考サイト</a>
+              <a class="button primary" href="#cuts">CUT別に見る</a>
+              <a class="button" href="#summary">FBまとめへ</a>
+              <button class="button alt" type="button" data-action="copy-share">
+                共有文をコピー
+              </button>
             </div>
           </div>
-          <div>
-            <figure class="hero-image">
-              <img src="./assets/clear-mystery.png" alt="IFAIのAIキャラクターが市場情報を分かりやすく整理するドット絵キー絵" />
-            </figure>
-            <div class="dialogue">怪しい？ 大丈夫。分解すると、見える。</div>
-          </div>
+          <figure class="hero-sheet">
+            <img
+              src="./assets/storyboard-v5-sheet.png"
+              alt="IFAIプロモーションムービーの10カット絵コンテ"
+            />
+          </figure>
         </div>
       </section>
 
-      <section id="review-guide">
+      <section id="sheet">
         <div class="wrap">
           <div class="section-head">
-            <h2>FBの返し方</h2>
+            <h2>全体絵コンテ</h2>
             <p class="note">
-              <span class="note-line">全部を細かく見る前に、</span>
-              <span class="note-line">まずこの3つだけ返してもらうと判断しやすい。</span>
+              まずは10枚を一気に見て、流れの気持ちよさを確認するページです。
             </p>
           </div>
-          <div class="review-grid">
-            <article class="review-card">
-              <span class="review-no">01</span>
-              <h3>この絵柄で進めていい?</h3>
-              <p>レトロADV風のドット絵が、IFAIの新しい見せ方としてワクワクするか。</p>
-              <div class="answer-scale">
-                <span>いける</span><span>調整</span><span>違う</span>
+          <figure class="sheet-frame">
+            <img
+              src="./assets/storyboard-v5-sheet.png"
+              alt="IFAIプロモーションムービーの10カット絵コンテ一覧"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section id="cuts">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>CUT別FB</h2>
+            <p class="note">
+              入力内容はこのブラウザに自動保存されます。最後にまとめてコピーできます。
+            </p>
+          </div>
+          <div class="feedback-shell">
+            <div class="cut-grid" id="cutGrid"></div>
+            <aside class="summary-panel" id="summary">
+              <h3>FBまとめ</h3>
+              <label>
+                お名前
+                <input id="reviewerName" type="text" placeholder="例: 三浦" />
+              </label>
+              <label>
+                全体FB
+                <textarea
+                  id="overallFeedback"
+                  placeholder="全体の印象、方向性、気になったこと"
+                ></textarea>
+              </label>
+              <label>
+                送信用まとめ
+                <textarea
+                  class="summary-output"
+                  id="summaryOutput"
+                  readonly
+                ></textarea>
+              </label>
+              <div class="summary-actions">
+                <button
+                  class="button primary"
+                  type="button"
+                  data-action="copy-summary"
+                >
+                  FBをコピー
+                </button>
+                <button
+                  class="button"
+                  type="button"
+                  data-action="download-json"
+                >
+                  JSON保存
+                </button>
+                <button class="button" type="button" data-action="copy-share">
+                  共有文
+                </button>
+                <button class="button" type="button" data-action="clear">
+                  入力を消す
+                </button>
               </div>
-            </article>
-            <article class="review-card">
-              <span class="review-no">02</span>
-              <h3>一気に分かる?</h3>
-              <p>怪しい入口から、AIが市況・銘柄・チャートを整理してくれる流れに見えるか。</p>
-              <div class="answer-scale">
-                <span>分かる</span><span>弱い</span><span>足す</span>
-              </div>
-            </article>
-            <article class="review-card">
-              <span class="review-no">03</span>
-              <h3>AIキャラは魅力的?</h3>
-              <p>小さなAIチームが、頼れる相棒として見えるか。怖さより分かりやすさに着地しているか。</p>
-              <div class="answer-scale">
-                <span>良い</span><span>怖い</span><span>弱い</span>
-              </div>
-            </article>
-          </div>
-          <div class="mini-guide">
-            <b>返し方の例</b>
-            <span>GOOD: 主人公とAIチームの絵柄は好き</span>
-            <span>MORE: 実UIをもっと混ぜたい</span>
-            <span>NG: 赤い未確認シグナルは怖すぎる</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="keyframes">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>キー絵</h2>
-            <p class="note">
-              <span class="note-line">本命は1枚目のトーン。</span>
-              <span class="note-line">怪しい入口、主人公目線、AIチーム、分かりやすい情報整理。</span>
-              <span class="note-line">2、3枚目は要素確認用。</span>
-            </p>
-          </div>
-          <div class="keyframes">
-            <figure class="frame">
-              <img src="./assets/clear-mystery.png" alt="本命方向のキー絵" />
-              <figcaption>
-                <strong>本命: 怪しい入口から分かりやすいAIへ</strong>
-                主人公がIFAIを発見。赤い未確認シグナルを、小さなAIチームが市場マップとチャートに整理する。
-              </figcaption>
-            </figure>
-            <figure class="frame">
-              <img src="./assets/opening.png" alt="冒頭キー絵" />
-              <figcaption>
-                <strong>要素: UFOとアプリ発見</strong>
-                UFOからIFAIが落ちてくる。最初の引きは少し怪しいが、怖くしすぎない。
-              </figcaption>
-            </figure>
-            <figure class="frame">
-              <img src="./assets/control-room.png" alt="調査室キー絵" />
-              <figcaption>
-                <strong>要素: AI調査室</strong>
-                市況・銘柄・チャートを一つの地図にしていく。機能説明はこの“調査”の中に埋め込む。
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section id="rules">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>画作りのルール</h2>
-            <p class="note">
-              <span class="note-line">絵柄そのもののコピーではなく、</span>
-              <span class="note-line">参考の文法をIFAIの世界に翻訳する。</span>
-            </p>
-          </div>
-          <div class="rules">
-            <div class="rule"><b>怪しいのは入口だけ</b><span>冒頭はUFOと赤いシグナルで引く。AIが出た後は情報が整って安心する。</span></div>
-            <div class="rule"><b>読める情報</b><span>地図、スコア、チャート、ランキングはパッと意味が分かる明るさで出す。</span></div>
-            <div class="rule"><b>AIは相棒</b><span>小さなAIチームが資料を運ぶ、指し示す、整理する。育てたAIが働いている感じ。</span></div>
-            <div class="rule"><b>会話UI</b><span>説明ラベルを減らし、短いセリフで“何が分かったか”をテンポよく見せる。</span></div>
-            <div class="rule"><b>粗いドット</b><span>滑らかな3Dではなく、荒いピクセルとディザでタイトル画面の引きを作る。</span></div>
-            <div class="rule"><b>実UIも混ぜる</b><span>画面録画は壁のモニター、スマホ画面、カルテとして入れて納得感を作る。</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="storyboard">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>秒数つき絵コンテ</h2>
-            <p class="note">
-              <span class="note-line">45秒想定。</span>
-              <span class="note-line">怪しい発見から入り、</span>
-              <span class="note-line">AIキャラクターが機能説明を“めっちゃ分かりやすい”体験に変える。</span>
-            </p>
-          </div>
-          <div class="scenes">
-            <article class="scene"><span class="time">0-3s</span><h3>UFOが落とす</h3><p>夜の街。UFOがIFAIアイコン型のカプセルを落とす。右画面では主人公がスマホで撮ろうとする。</p><p class="quote">なに、今の。</p><p class="scene-ask"><b>FB:</b> 冒頭の引きとしてワクワクする?</p></article>
-            <article class="scene"><span class="time">3-6s</span><h3>スマホに入る</h3><p>左画面は一人称のスマホ視点。落ちてきたIFAIが画面に吸い込まれ、赤い市場シグナルが走る。</p><p class="quote">怪しい？</p><p class="scene-ask"><b>FB:</b> アプリに入ってくる感じは伝わる?</p></article>
-            <article class="scene"><span class="time">6-9s</span><h3>AIキャラ登場</h3><p>スマホから白いAIアシスタントが飛び出す。小さなAIチームも続いて、資料やチャートを持ってくる。</p><p class="quote">大丈夫。分解すると、見える。</p><p class="scene-ask"><b>FB:</b> AIをキャラクター化する方向は魅力的?</p></article>
-            <article class="scene"><span class="time">9-13s</span><h3>市況を整理</h3><p>米国市場、為替、金利、ニュースの紙片がAIの手で並び、見るべき材料だけが明るく残る。</p><p class="quote">今朝見るべき材料だけ、残す。</p><p class="scene-ask"><b>FB:</b> 市況要約の機能に見える?</p></article>
-            <article class="scene"><span class="time">13-17s</span><h3>新しい地図</h3><p>壁面に日本地図型ヒートマップ。強いセクターだけ鈍く発光する。</p><p class="quote">市場の地図が、見える。</p><p class="scene-ask"><b>FB:</b> 「新しい地図」の比喩は刺さる?</p></article>
-            <article class="scene"><span class="time">17-22s</span><h3>銘柄カルテ</h3><p>決算、チャート、SNS、ニュースが銘柄ごとの調査ファイルへ閉じる。</p><p class="quote">一枚のカルテへ。</p><p class="scene-ask"><b>FB:</b> 銘柄ごとに材料がまとまる感じはある?</p></article>
-            <article class="scene"><span class="time">22-26s</span><h3>AI評価</h3><p>AIチームがスコア、ランキング、注目材料をカードにまとめる。IFAI評価が大きくポップ。</p><p class="quote">プロの視点を、AI評価に。</p><p class="scene-ask"><b>FB:</b> ここはもっと実UIを見せるべき?</p></article>
-            <article class="scene"><span class="time">26-31s</span><h3>チャート尋問</h3><p>チャートが証言台のように表示され、AIが線を引きながら答える。</p><p class="quote">この上昇、なぜ?</p><p class="scene-ask"><b>FB:</b> AIに聞ける感じは伝わる?</p></article>
-            <article class="scene"><span class="time">31-35s</span><h3>比較検証</h3><p>2本のチャート線が重なり、疑惑の赤線が根拠のシアン線へ変わる。</p><p class="quote">比較すれば、見えてくる。</p><p class="scene-ask"><b>FB:</b> 比較機能はこの尺で必要?</p></article>
-            <article class="scene"><span class="time">35-39s</span><h3>AIチーム</h3><p>ニュースAI、決算AI、チャートAI、保有AIがそれぞれ働き、中央のブリーフに集める。</p><p class="quote">点が、つながる。</p><p class="scene-ask"><b>FB:</b> AIがたくさんいる感じは出ている?</p></article>
-            <article class="scene"><span class="time">39-42s</span><h3>スマホへ</h3><p>調査室の情報がスマホ画面に縮む。夜道でも同じUIが続く。</p><p class="quote">外でも、調査は続く。</p><p class="scene-ask"><b>FB:</b> スマホアプリ訴求として足りる?</p></article>
-            <article class="scene"><span class="time">42-45s</span><h3>CTA</h3><p>暗転。IFAIロゴとURL/QR。最後だけ差し替えやすく設計。</p><p class="quote">機能紹介ウェビナーへ</p><p class="scene-ask"><b>FB:</b> ウェビナーへ行く理由が残る?</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section id="copy">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>短い文言</h2>
-            <p class="note">
-              <span class="note-line">「楽して稼げる」は避ける。</span>
-              <span class="note-line">画でワクワク、言葉は“見える・残す・つながる”へ。</span>
-            </p>
-          </div>
-          <div class="copy-grid">
-            <div class="copy-chip"><span>冒頭</span>なに、今の。</div>
-            <div class="copy-chip"><span>起動</span>怪しい？ 大丈夫。</div>
-            <div class="copy-chip"><span>市況</span>見るべき材料だけ、残す。</div>
-            <div class="copy-chip"><span>地図</span>市場の地図が、見える。</div>
-            <div class="copy-chip"><span>銘柄</span>一枚のカルテへ。</div>
-            <div class="copy-chip"><span>評価</span>プロの視点を、AI評価に。</div>
-            <div class="copy-chip"><span>質問</span>この上昇、なぜ?</div>
-            <div class="copy-chip"><span>比較</span>比較すれば、見えてくる。</div>
-            <div class="copy-chip"><span>集約</span>点が、つながる。</div>
-            <div class="copy-chip"><span>スマホ</span>外でも、調査は続く。</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="before">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>前案からの変更</h2>
-            <p class="note">
-              <span class="note-line">前案は構造確認用。</span>
-              <span class="note-line">共有用ページではこの方向に切り替える。</span>
-            </p>
-          </div>
-          <div class="compare">
-            <img src="./assets/old-rough.png" alt="前案のラフ絵コンテ" />
-            <div class="dialogue">
-              前案は機能説明の箱になっていてワクワクが弱かった。v3では「怪しい入口」から入り、AIキャラクターが市場情報を一気に分かりやすくしてくれる体験としてIFAIを見せる。
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="feedback">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>FB欄</h2>
-            <p class="note">
-              <span class="note-line">迷ったらテンプレをコピーして返すだけ。</span>
-              <span class="note-line">細かいシーンFBは、気になった秒数だけでOK。</span>
-            </p>
-          </div>
-          <div class="feedback">
-            <div class="feedback-box">
-              <h3>まず聞きたいこと</h3>
-              <ul>
-                <li>この世界観で進めてよさそうか</li>
-                <li>怪しい入口から分かりやすさへ着地しているか</li>
-                <li>AIキャラクターが頼れる相棒に見えるか</li>
-                <li>一番ワクワクしたシーンはどこか</li>
-              </ul>
-            </div>
-            <div class="feedback-box">
-              <h3>できれば見たいこと</h3>
-              <ul>
-                <li>分かりにくい機能シーン</li>
-                <li>もっと実UIを見せた方がいい箇所</li>
-                <li>怖く見えすぎる箇所</li>
-                <li>コピーで違和感がある言葉</li>
-              </ul>
-            </div>
-          </div>
-          <div class="template-grid">
-            <div class="template-card">
-              <h3>返答テンプレ</h3>
-              <textarea id="feedbackTemplate" readonly>【全体】
-絵柄: いける / 調整したい / 違う
-理由:
-
-【一番良いと思ったところ】
-
-【気になったところ】
-
-【怪しい→分かりやすい】
-伝わる / もう少し分かりやすくしたい / 怖すぎる
-理由:
-
-【AIキャラクター】
-好き / 調整したい / もっと出したい
-理由:
-
-【機能の伝わり方】
-市況:
-セクター:
-AI評価:
-チャート分析:
-スマホ:
-
-【シーン別FB】
-0-3s:
-3-6s:
-6-9s:
-9-13s:
-13-17s:
-17-22s:
-22-26s:
-26-31s:
-31-35s:
-35-39s:
-39-42s:
-42-45s:
-
-【その他】</textarea>
-              <div class="copy-row">
-                <button class="copy-button" type="button" data-copy="feedbackTemplate">テンプレをコピー</button>
-                <span class="copy-status" id="feedbackTemplateStatus"></span>
-              </div>
-            </div>
-            <div class="template-card">
-              <h3>共有時の依頼文</h3>
-              <textarea id="shareTemplate" readonly>IFAIプロモーションムービーの新しい絵コンテ案です。
-「怪しいと思ったら、めっちゃ分かりやすい」を軸に、AIキャラクターが市場情報を整理する方向にしています。
-
-見てほしいのはこの3点です。
-1. この絵柄・トーンで進めてよさそうか
-2. 怪しい入口から分かりやすさに着地できているか
-3. AIキャラクターが頼れる相棒として魅力的か
-
-気になった秒数だけでもFBください。</textarea>
-              <div class="copy-row">
-                <button class="copy-button" type="button" data-copy="shareTemplate">共有文をコピー</button>
-                <span class="copy-status" id="shareTemplateStatus"></span>
-              </div>
-            </div>
+              <div class="status" id="status" aria-live="polite"></div>
+            </aside>
           </div>
         </div>
       </section>
@@ -1042,29 +630,207 @@ AI評価:
 
     <footer class="footer">
       <div class="wrap">
-        IFAI promotion storyboard v3 / prepared for feedback sharing. Reference is used for broad visual grammar only; final artwork should remain original.
+        IFAI promotion storyboard v5 / visual storyboard feedback page.
       </div>
     </footer>
+
     <script>
-      document.querySelectorAll("[data-copy]").forEach((button) => {
-        button.addEventListener("click", async () => {
-          const targetId = button.getAttribute("data-copy");
-          const target = document.getElementById(targetId);
-          const status = document.getElementById(`${targetId}Status`);
-          if (!target) return;
-          try {
-            await navigator.clipboard.writeText(target.value);
-            if (status) status.textContent = "コピーしました";
-          } catch (error) {
-            target.focus();
-            target.select();
-            if (status) status.textContent = "選択しました";
-          }
-          window.setTimeout(() => {
-            if (status) status.textContent = "";
-          }, 1800);
+      const cuts = [
+        { id: "cut01", no: "01", time: "0-3.5s", title: "未確認シグナル" },
+        { id: "cut02", no: "02", time: "3.5-6.5s", title: "IFAIが起動" },
+        { id: "cut03", no: "03", time: "6.5-10s", title: "AIチーム召集" },
+        { id: "cut04", no: "04", time: "10-14s", title: "朝の材料だけ残す" },
+        { id: "cut05", no: "05", time: "14-18s", title: "新しい市場地図" },
+        { id: "cut06", no: "06", time: "18-23s", title: "銘柄カルテ化" },
+        { id: "cut07", no: "07", time: "23-28s", title: "AI評価カード" },
+        { id: "cut08", no: "08", time: "28-34s", title: "チャートに聞く" },
+        {
+          id: "cut09",
+          no: "09",
+          time: "34-39.5s",
+          title: "比較で根拠に変える",
+        },
+        {
+          id: "cut10",
+          no: "10",
+          time: "39.5-45s",
+          title: "自分の地図を持ち出す",
+        },
+      ];
+
+      const storageKey = "ifai-storyboard-v5-feedback";
+      const cutGrid = document.getElementById("cutGrid");
+      const reviewerName = document.getElementById("reviewerName");
+      const overallFeedback = document.getElementById("overallFeedback");
+      const summaryOutput = document.getElementById("summaryOutput");
+      const statusNode = document.getElementById("status");
+
+      const loadState = () => {
+        try {
+          return JSON.parse(localStorage.getItem(storageKey) || "{}");
+        } catch {
+          return {};
+        }
+      };
+
+      let state = {
+        reviewer: "",
+        overall: "",
+        cuts: {},
+        ...loadState(),
+      };
+
+      const setStatus = (message) => {
+        statusNode.textContent = message;
+        window.clearTimeout(setStatus.timer);
+        setStatus.timer = window.setTimeout(() => {
+          statusNode.textContent = "";
+        }, 1800);
+      };
+
+      const saveState = () => {
+        localStorage.setItem(storageKey, JSON.stringify(state));
+        updateSummary();
+      };
+
+      const escapeHtml = (value) =>
+        String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+
+      const renderCuts = () => {
+        cutGrid.innerHTML = cuts
+          .map((cut) => {
+            const saved = state.cuts?.[cut.id] || {};
+            return `
+              <article class="cut-card" id="${cut.id}">
+                <figure class="cut-image">
+                  <img src="./assets/storyboard-v5-cut-${cut.no}.png" alt="CUT ${cut.no} ${cut.title}" />
+                </figure>
+                <div class="cut-meta">
+                  <h3 class="cut-title">CUT ${cut.no} ${cut.title}</h3>
+                  <span class="cut-time">${cut.time}</span>
+                </div>
+                <div class="cut-form">
+                  <label>
+                    判定
+                    <select data-field="rating" data-cut="${cut.id}">
+                      <option value="">選択</option>
+                      <option value="OK" ${saved.rating === "OK" ? "selected" : ""}>OK</option>
+                      <option value="調整" ${saved.rating === "調整" ? "selected" : ""}>調整</option>
+                      <option value="NG" ${saved.rating === "NG" ? "selected" : ""}>NG</option>
+                    </select>
+                  </label>
+                  <label>
+                    FB
+                    <textarea data-field="comment" data-cut="${cut.id}" placeholder="この絵へのFB">${escapeHtml(saved.comment || "")}</textarea>
+                  </label>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      };
+
+      const buildSummary = () => {
+        const lines = [
+          "IFAI 絵コンテ v5 FB",
+          `名前: ${state.reviewer || ""}`,
+          "",
+          "【全体FB】",
+          state.overall || "",
+          "",
+          "【CUT別FB】",
+        ];
+
+        cuts.forEach((cut) => {
+          const item = state.cuts?.[cut.id] || {};
+          if (!item.rating && !item.comment) return;
+          lines.push(`CUT ${cut.no} ${cut.time} ${cut.title}`);
+          lines.push(`判定: ${item.rating || ""}`);
+          lines.push(`FB: ${item.comment || ""}`);
+          lines.push("");
         });
-      });
+
+        return lines.join("\n").trim();
+      };
+
+      const updateSummary = () => {
+        summaryOutput.value = buildSummary();
+      };
+
+      const bindEvents = () => {
+        reviewerName.value = state.reviewer || "";
+        overallFeedback.value = state.overall || "";
+
+        reviewerName.addEventListener("input", () => {
+          state.reviewer = reviewerName.value;
+          saveState();
+        });
+
+        overallFeedback.addEventListener("input", () => {
+          state.overall = overallFeedback.value;
+          saveState();
+        });
+
+        const handleCutInput = (event) => {
+          const target = event.target;
+          const cutId = target.getAttribute("data-cut");
+          const field = target.getAttribute("data-field");
+          if (!cutId || !field) return;
+          state.cuts = state.cuts || {};
+          state.cuts[cutId] = state.cuts[cutId] || {};
+          state.cuts[cutId][field] = target.value;
+          saveState();
+        };
+
+        cutGrid.addEventListener("input", handleCutInput);
+        cutGrid.addEventListener("change", handleCutInput);
+
+        document.querySelectorAll("[data-action]").forEach((button) => {
+          button.addEventListener("click", async () => {
+            const action = button.getAttribute("data-action");
+            if (action === "copy-summary") {
+              await navigator.clipboard.writeText(buildSummary());
+              setStatus("FBをコピーしました");
+            }
+            if (action === "copy-share") {
+              const shareText =
+                "IFAIプロモーションムービーの絵コンテv5です。10枚の絵を見ながら、各CUTにそのままFBを書けます。\\n\\n見てほしい点:\\n1. 絵の方向性で進めてよさそうか\\n2. 怪しい入口から分かりやすさに着地しているか\\n3. AIキャラクターが頼れる相棒に見えるか";
+              await navigator.clipboard.writeText(shareText);
+              setStatus("共有文をコピーしました");
+            }
+            if (action === "download-json") {
+              const blob = new Blob([JSON.stringify(state, null, 2)], {
+                type: "application/json",
+              });
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = "ifai-storyboard-v5-feedback.json";
+              link.click();
+              URL.revokeObjectURL(url);
+              setStatus("JSONを保存しました");
+            }
+            if (action === "clear") {
+              if (!confirm("入力したFBを消しますか?")) return;
+              state = { reviewer: "", overall: "", cuts: {} };
+              localStorage.removeItem(storageKey);
+              reviewerName.value = "";
+              overallFeedback.value = "";
+              renderCuts();
+              updateSummary();
+              setStatus("入力を消しました");
+            }
+          });
+        });
+      };
+
+      renderCuts();
+      bindEvents();
+      updateSummary();
     </script>
   </body>
 </html>
