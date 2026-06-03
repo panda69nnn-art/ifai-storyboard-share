@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IFAI プロモーションムービー 絵コンテ v2</title>
+    <meta
+      name="description"
+      content="IFAIプロモーションムービー新演出案。都市伝説ADV風ドット絵で、市場情報をAIが解体する絵コンテ。"
+    />
+    <meta property="og:title" content="IFAI プロモーションムービー 絵コンテ v2" />
+    <meta
+      property="og:description"
+      content="都市伝説ADV風ドット絵で、市場情報をAIが解体する演出案。"
+    />
+    <meta property="og:image" content="./assets/opening.png" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07070c;
+        --ink: #f4efe4;
+        --muted: #a8a196;
+        --dim: #575160;
+        --panel: #11121a;
+        --panel-2: #171821;
+        --line: #393448;
+        --cream: #f2dcc2;
+        --green: #9bd6ad;
+        --cyan: #83d8d4;
+        --red: #e7232f;
+        --yellow: #d2c15d;
+        --shadow: rgba(0, 0, 0, 0.52);
+        --font: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--bg);
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font);
+        background:
+          linear-gradient(rgba(131, 216, 212, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(131, 216, 212, 0.025) 1px, transparent 1px),
+          radial-gradient(circle at 78% 10%, rgba(231, 35, 47, 0.13), transparent 22rem),
+          radial-gradient(circle at 8% 18%, rgba(131, 216, 212, 0.1), transparent 24rem),
+          #07070c;
+        background-size: 12px 12px, 12px 12px, auto, auto, auto;
+        letter-spacing: 0;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      .wrap {
+        width: calc(100% - 36px);
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(242, 220, 194, 0.12);
+        background: rgba(7, 7, 12, 0.86);
+        backdrop-filter: blur(12px);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 56px;
+        gap: 18px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 900;
+        color: var(--cream);
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 25px;
+        height: 25px;
+        border: 1px solid var(--cream);
+        background: #050508;
+        box-shadow: 3px 3px 0 rgba(231, 35, 47, 0.7);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+      }
+
+      nav a {
+        padding: 8px 10px;
+        border: 1px solid transparent;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      nav a:hover {
+        border-color: rgba(131, 216, 212, 0.35);
+        color: var(--ink);
+        background: rgba(131, 216, 212, 0.06);
+      }
+
+      .hero {
+        min-height: calc(100vh - 56px);
+        padding: 58px 0 42px;
+        display: grid;
+        align-items: center;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 24px;
+        align-items: end;
+      }
+
+      .hero-grid > *,
+      .hero-copy {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .hero-copy {
+        padding-bottom: 8px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .signal {
+        width: 9px;
+        height: 9px;
+        background: var(--red);
+        box-shadow: 0 0 0 5px rgba(231, 35, 47, 0.16), 0 0 20px rgba(231, 35, 47, 0.8);
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(42px, 7vw, 92px);
+        line-height: 0.98;
+        font-weight: 950;
+        overflow-wrap: anywhere;
+      }
+
+      .lead {
+        width: 100%;
+        max-width: 720px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: clamp(16px, 2vw, 22px);
+        font-weight: 800;
+        line-height: 1.72;
+        overflow-wrap: anywhere;
+        word-break: break-all;
+      }
+
+      .lead-line {
+        display: block;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 14px;
+        border: 1px solid rgba(242, 220, 194, 0.28);
+        background: rgba(17, 18, 26, 0.74);
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+        text-decoration: none;
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+      }
+
+      .button.primary {
+        border-color: rgba(231, 35, 47, 0.7);
+        background: var(--red);
+        color: #fff;
+      }
+
+      .hero-image {
+        position: relative;
+        border: 1px solid rgba(242, 220, 194, 0.2);
+        background: #050508;
+        box-shadow: 0 24px 70px var(--shadow), 8px 8px 0 rgba(231, 35, 47, 0.36);
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border: 1px solid rgba(131, 216, 212, 0.26);
+        pointer-events: none;
+      }
+
+      .hero-image img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .dialogue {
+        position: relative;
+        margin-top: 12px;
+        padding: 16px 18px 17px;
+        border: 1px solid rgba(242, 220, 194, 0.34);
+        background: rgba(5, 5, 8, 0.92);
+        color: var(--cream);
+        font-size: 15px;
+        font-weight: 850;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+      }
+
+      .dialogue::after {
+        content: "";
+        position: absolute;
+        right: 22px;
+        bottom: 10px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 10px solid var(--cream);
+        opacity: 0.78;
+      }
+
+      section {
+        padding: 58px 0;
+        border-top: 1px solid rgba(242, 220, 194, 0.1);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 22px;
+        margin-bottom: 22px;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--cream);
+        font-size: clamp(26px, 4vw, 44px);
+        line-height: 1.14;
+        font-weight: 950;
+      }
+
+      .note {
+        width: 100%;
+        max-width: 620px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 760;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+        word-break: break-all;
+      }
+
+      .note-line {
+        display: block;
+      }
+
+      .keyframes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .frame {
+        border: 1px solid rgba(242, 220, 194, 0.18);
+        background: rgba(17, 18, 26, 0.68);
+        box-shadow: 0 18px 52px rgba(0, 0, 0, 0.28);
+      }
+
+      .frame img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .frame figcaption {
+        margin: 0;
+        padding: 14px 15px 16px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 780;
+        line-height: 1.65;
+      }
+
+      .frame strong {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .rules {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .rule {
+        padding: 16px;
+        border: 1px solid rgba(131, 216, 212, 0.2);
+        background: rgba(17, 18, 26, 0.74);
+      }
+
+      .rule b {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--green);
+        font-size: 14px;
+      }
+
+      .rule span {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 730;
+        line-height: 1.64;
+      }
+
+      .scenes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .scene {
+        min-height: 214px;
+        padding: 15px;
+        border: 1px solid rgba(242, 220, 194, 0.16);
+        background:
+          linear-gradient(135deg, rgba(231, 35, 47, 0.08), transparent 42%),
+          rgba(17, 18, 26, 0.72);
+      }
+
+      .time {
+        display: inline-flex;
+        margin-bottom: 12px;
+        padding: 5px 8px;
+        border: 1px solid rgba(231, 35, 47, 0.62);
+        color: #fff;
+        background: rgba(231, 35, 47, 0.32);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .scene h3 {
+        margin: 0 0 9px;
+        color: var(--ink);
+        font-size: 19px;
+        line-height: 1.28;
+      }
+
+      .scene p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 740;
+        line-height: 1.68;
+        overflow-wrap: anywhere;
+      }
+
+      .quote {
+        margin-top: 12px;
+        color: var(--cream);
+        font-weight: 900;
+      }
+
+      .compare {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 18px;
+        align-items: center;
+      }
+
+      .compare img {
+        border: 1px solid rgba(242, 220, 194, 0.16);
+        background: #050508;
+      }
+
+      .copy-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+      }
+
+      .copy-chip {
+        padding: 12px;
+        border: 1px solid rgba(155, 214, 173, 0.2);
+        background: rgba(8, 13, 13, 0.82);
+        color: var(--cream);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.5;
+      }
+
+      .copy-chip span {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--green);
+        font-size: 11px;
+      }
+
+      .feedback {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .feedback-box {
+        padding: 18px;
+        border: 1px solid rgba(242, 220, 194, 0.18);
+        background: rgba(17, 18, 26, 0.74);
+      }
+
+      .feedback-box h3 {
+        margin: 0 0 12px;
+        color: var(--cream);
+        font-size: 20px;
+      }
+
+      .feedback-box ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 760;
+        line-height: 1.78;
+      }
+
+      .footer {
+        padding: 34px 0 46px;
+        color: var(--dim);
+        font-size: 12px;
+        font-weight: 760;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-grid,
+        .keyframes,
+        .compare,
+        .feedback {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .rules,
+        .scenes {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .copy-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .section-head {
+          display: block;
+        }
+
+        .note {
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .wrap {
+          width: calc(100% - 24px);
+          max-width: 1180px;
+        }
+
+        .topbar-inner {
+          align-items: start;
+          flex-direction: column;
+          padding: 10px 0;
+        }
+
+        nav {
+          width: 100%;
+        }
+
+        .rules,
+        .scenes,
+        .copy-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions {
+          display: grid;
+        }
+
+        h1 {
+          font-size: 37px;
+        }
+
+        h1,
+        .lead,
+        .note,
+        .dialogue,
+        .hero-copy,
+        .hero-image,
+        .frame,
+        .compare,
+        .feedback-box,
+        .scene,
+        .rule,
+        .copy-chip {
+          max-width: calc(100vw - 24px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <div class="brand"><span class="brand-mark">F</span>IFAI 絵コンテ v2</div>
+        <nav aria-label="ページ内メニュー">
+          <a href="#keyframes">キー絵</a>
+          <a href="#rules">画作り</a>
+          <a href="#storyboard">秒数</a>
+          <a href="#copy">コピー</a>
+          <a href="#feedback">FB観点</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="signal"></span>都市伝説ADV風ドット絵案</div>
+            <h1>市場に出た<br />変なサインを、<br />IFAIが解体する。</h1>
+            <p class="lead">
+              <span class="lead-line">便利な株アプリの説明ではなく、</span>
+              <span class="lead-line">夜の街に混ざった市場の異変をAIが読む。</span>
+              <span class="lead-line">UFO、赤いシグナル、会話UI、ドット絵。</span>
+              <span class="lead-line">「生成AI時代の株の新しい地図」を見せる。</span>
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#storyboard">絵コンテを見る</a>
+              <a class="button" href="https://vimeo.com/reviews/cb0c817f-9d3a-4806-b368-cbe594e37c38/videos/1197648606">現動画レビュー</a>
+              <a class="button" href="https://karoooomecakes.wixsite.com/game">参考サイト</a>
+            </div>
+          </div>
+          <div>
+            <figure class="hero-image">
+              <img src="./assets/opening.png" alt="IFAI都市伝説風ドット絵の冒頭キー絵" />
+            </figure>
+            <div class="dialogue">また、市場に変なサインが出てる。</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="keyframes">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>キー絵</h2>
+            <p class="note">
+              <span class="note-line">まずこの2枚の温度で方向確認。</span>
+              <span class="note-line">冒頭は夜の街とUFO。</span>
+              <span class="note-line">中盤は調査室でAIが市場情報を解体する。</span>
+            </p>
+          </div>
+          <div class="keyframes">
+            <figure class="frame">
+              <img src="./assets/opening.png" alt="冒頭キー絵" />
+              <figcaption>
+                <strong>冒頭: 夜の市場キオスク</strong>
+                日常の場所にUFOと株式チャートの異常が混ざる。IFAIは怪しい道具としてスマホに現れる。
+              </figcaption>
+            </figure>
+            <figure class="frame">
+              <img src="./assets/control-room.png" alt="調査室キー絵" />
+              <figcaption>
+                <strong>中盤: AI調査室</strong>
+                赤い未確認シグナルと小さなAI調査員が、市況・銘柄・チャートを一つの地図にしていく。
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="rules">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>画作りのルール</h2>
+            <p class="note">
+              <span class="note-line">絵柄そのもののコピーではなく、</span>
+              <span class="note-line">参考の文法をIFAIの世界に翻訳する。</span>
+            </p>
+          </div>
+          <div class="rules">
+            <div class="rule"><b>夜の場所</b><span>市場キオスク、調査室、スマホ画面。普通の場所に異常が混ざる。</span></div>
+            <div class="rule"><b>少ない色</b><span>暗紫、鈍い緑、クリーム、赤。色数を絞って空気を濃くする。</span></div>
+            <div class="rule"><b>赤い異物</b><span>AIは便利マスコットではなく、市場に出る未確認シグナルとして出す。</span></div>
+            <div class="rule"><b>会話UI</b><span>説明ラベルを減らし、短いセリフで謎解きのテンポを作る。</span></div>
+            <div class="rule"><b>粗いドット</b><span>滑らかな3Dではなく、荒いピクセルとディザでタイトル画面の引きを作る。</span></div>
+            <div class="rule"><b>情報は小道具</b><span>画面録画は白背景に置かず、壁の資料・カルテ・モニターとして埋め込む。</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="storyboard">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>秒数つき絵コンテ</h2>
+            <p class="note">
+              <span class="note-line">45秒想定。</span>
+              <span class="note-line">会話ADVの画面文法で、</span>
+              <span class="note-line">機能説明を“市場の異変を解く”体験に変える。</span>
+            </p>
+          </div>
+          <div class="scenes">
+            <article class="scene"><span class="time">0-3s</span><h3>未確認シグナル</h3><p>夜の市場キオスク。窓に株価、SNS、ニュース。UFOの光がスマホに落ちる。</p><p class="quote">また、市場に変なサインが出てる。</p></article>
+            <article class="scene"><span class="time">3-6s</span><h3>赤い異物</h3><p>赤いグリッチAIが出現。日本地図型のチャートに赤いピンが灯る。</p><p class="quote">上がる理由の痕跡だったっけ...?</p></article>
+            <article class="scene"><span class="time">6-9s</span><h3>IFAI起動</h3><p>スマホのIFAIアイコンがノイズを吸い、会話UIが立ち上がる。</p><p class="quote">IFAI、解析開始。</p></article>
+            <article class="scene"><span class="time">9-13s</span><h3>市況解体</h3><p>米国市場、為替、金利、ニュースの紙片が壁に貼られ、不要情報が剥がれる。</p><p class="quote">今朝見るべき材料だけ、残す。</p></article>
+            <article class="scene"><span class="time">13-17s</span><h3>新しい地図</h3><p>壁面に日本地図型ヒートマップ。強いセクターだけ鈍く発光する。</p><p class="quote">市場の地図が、見える。</p></article>
+            <article class="scene"><span class="time">17-22s</span><h3>銘柄カルテ</h3><p>決算、チャート、SNS、ニュースが銘柄ごとの調査ファイルへ閉じる。</p><p class="quote">一枚のカルテへ。</p></article>
+            <article class="scene"><span class="time">22-26s</span><h3>AI評価</h3><p>赤いシグナルがスコアを指差す。IFAI評価が大きくポップ。</p><p class="quote">プロの視点を、AI評価に。</p></article>
+            <article class="scene"><span class="time">26-31s</span><h3>チャート尋問</h3><p>チャートが証言台のように表示され、AIが線を引きながら答える。</p><p class="quote">この上昇、なぜ?</p></article>
+            <article class="scene"><span class="time">31-35s</span><h3>比較検証</h3><p>2本のチャート線が重なり、疑惑の赤線が根拠のシアン線へ変わる。</p><p class="quote">比較すれば、見えてくる。</p></article>
+            <article class="scene"><span class="time">35-39s</span><h3>AIチーム</h3><p>小AIたちがニュース、決算、SNS、保有を解析して中央のブリーフに集める。</p><p class="quote">点が、つながる。</p></article>
+            <article class="scene"><span class="time">39-42s</span><h3>スマホへ</h3><p>調査室の情報がスマホ画面に縮む。夜道でも同じUIが続く。</p><p class="quote">外でも、調査は続く。</p></article>
+            <article class="scene"><span class="time">42-45s</span><h3>CTA</h3><p>暗転。IFAIロゴとURL/QR。最後だけ差し替えやすく設計。</p><p class="quote">機能紹介ウェビナーへ</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="copy">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>短い文言</h2>
+            <p class="note">
+              <span class="note-line">「楽して稼げる」は避ける。</span>
+              <span class="note-line">画でワクワク、言葉は“見える・残す・つながる”へ。</span>
+            </p>
+          </div>
+          <div class="copy-grid">
+            <div class="copy-chip"><span>冒頭</span>市場に変なサインが出てる。</div>
+            <div class="copy-chip"><span>起動</span>IFAI、解析開始。</div>
+            <div class="copy-chip"><span>市況</span>見るべき材料だけ、残す。</div>
+            <div class="copy-chip"><span>地図</span>市場の地図が、見える。</div>
+            <div class="copy-chip"><span>銘柄</span>一枚のカルテへ。</div>
+            <div class="copy-chip"><span>評価</span>プロの視点を、AI評価に。</div>
+            <div class="copy-chip"><span>質問</span>この上昇、なぜ?</div>
+            <div class="copy-chip"><span>比較</span>比較すれば、見えてくる。</div>
+            <div class="copy-chip"><span>集約</span>点が、つながる。</div>
+            <div class="copy-chip"><span>スマホ</span>外でも、調査は続く。</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="before">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>前案からの変更</h2>
+            <p class="note">
+              <span class="note-line">前案は構造確認用。</span>
+              <span class="note-line">共有用ページではこの方向に切り替える。</span>
+            </p>
+          </div>
+          <div class="compare">
+            <img src="./assets/old-rough.png" alt="前案のラフ絵コンテ" />
+            <div class="dialogue">
+              前案は機能説明の箱になっていてワクワクが弱かった。v2では「便利機能」ではなく「市場の異変を解く道具」としてIFAIを見せる。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="feedback">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>FBしてほしいところ</h2>
+            <p class="note">
+              <span class="note-line">共有先には、</span>
+              <span class="note-line">この4点だけ見てもらうと返事が集めやすい。</span>
+            </p>
+          </div>
+          <div class="feedback">
+            <div class="feedback-box">
+              <h3>方向性</h3>
+              <ul>
+                <li>都市伝説ADV風はIFAIに合っているか</li>
+                <li>UFOは主役か、背景の怪異くらいが良いか</li>
+                <li>赤いAIシグナルは怖すぎないか、ちょうど良いか</li>
+              </ul>
+            </div>
+            <div class="feedback-box">
+              <h3>伝わり方</h3>
+              <ul>
+                <li>株アプリの機能が分かりにくくなりすぎていないか</li>
+                <li>「新しい地図」「AIが整理する」が伝わるか</li>
+                <li>CTA前にウェビナーへ行く理由が残るか</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        IFAI promotion storyboard v2 / prepared for feedback sharing. Reference is used for broad visual grammar only; final artwork should remain original.
+      </div>
+    </footer>
+  </body>
+</html>
