@@ -355,6 +355,89 @@
         gap: 12px;
       }
 
+      .review-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .review-card {
+        padding: 17px;
+        border: 1px solid rgba(242, 220, 194, 0.18);
+        background:
+          linear-gradient(135deg, rgba(131, 216, 212, 0.1), transparent 44%),
+          rgba(17, 18, 26, 0.74);
+      }
+
+      .review-no {
+        display: inline-flex;
+        margin-bottom: 13px;
+        padding: 5px 8px;
+        background: var(--red);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .review-card h3 {
+        margin: 0 0 9px;
+        color: var(--cream);
+        font-size: 22px;
+        line-height: 1.3;
+      }
+
+      .review-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.7;
+      }
+
+      .answer-scale {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-top: 14px;
+      }
+
+      .answer-scale span {
+        display: grid;
+        place-items: center;
+        min-height: 30px;
+        border: 1px solid rgba(155, 214, 173, 0.24);
+        color: var(--green);
+        background: rgba(8, 13, 13, 0.72);
+        font-size: 11px;
+        font-weight: 900;
+        text-align: center;
+      }
+
+      .mini-guide {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .mini-guide b,
+      .mini-guide span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 31px;
+        padding: 6px 9px;
+        border: 1px solid rgba(242, 220, 194, 0.16);
+        background: rgba(5, 5, 8, 0.72);
+      }
+
+      .mini-guide b {
+        color: var(--cream);
+        border-color: rgba(231, 35, 47, 0.45);
+      }
+
       .rule {
         padding: 16px;
         border: 1px solid rgba(131, 216, 212, 0.2);
@@ -424,6 +507,18 @@
         font-weight: 900;
       }
 
+      .scene-ask {
+        margin-top: 13px !important;
+        padding-top: 12px;
+        border-top: 1px solid rgba(242, 220, 194, 0.12);
+        color: var(--green) !important;
+        font-weight: 850 !important;
+      }
+
+      .scene-ask b {
+        color: var(--cream);
+      }
+
       .compare {
         display: grid;
         grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -486,6 +581,64 @@
         line-height: 1.78;
       }
 
+      .template-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .template-card {
+        padding: 18px;
+        border: 1px solid rgba(242, 220, 194, 0.18);
+        background: rgba(5, 5, 8, 0.72);
+      }
+
+      .template-card h3 {
+        margin: 0 0 12px;
+        color: var(--cream);
+        font-size: 20px;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 260px;
+        resize: vertical;
+        padding: 14px;
+        border: 1px solid rgba(131, 216, 212, 0.22);
+        background: #07070c;
+        color: var(--ink);
+        font-family: var(--font);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.7;
+      }
+
+      .copy-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .copy-button {
+        min-height: 38px;
+        padding: 8px 12px;
+        border: 1px solid rgba(231, 35, 47, 0.72);
+        background: var(--red);
+        color: #fff;
+        font-family: var(--font);
+        font-size: 12px;
+        font-weight: 950;
+        cursor: pointer;
+      }
+
+      .copy-status {
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
       .footer {
         padding: 34px 0 46px;
         color: var(--dim);
@@ -501,11 +654,13 @@
         .hero-grid,
         .keyframes,
         .compare,
-        .feedback {
+        .feedback,
+        .template-grid {
           grid-template-columns: minmax(0, 1fr);
         }
 
         .rules,
+        .review-grid,
         .scenes {
           grid-template-columns: 1fr 1fr;
         }
@@ -540,6 +695,7 @@
         }
 
         .rules,
+        .review-grid,
         .scenes,
         .copy-grid {
           grid-template-columns: 1fr;
@@ -547,6 +703,10 @@
 
         .hero-actions {
           display: grid;
+        }
+
+        .answer-scale {
+          grid-template-columns: 1fr;
         }
 
         h1 {
@@ -562,8 +722,10 @@
         .frame,
         .compare,
         .feedback-box,
+        .template-card,
         .scene,
         .rule,
+        .review-card,
         .copy-chip {
           max-width: calc(100vw - 24px);
         }
@@ -575,11 +737,12 @@
       <div class="wrap topbar-inner">
         <div class="brand"><span class="brand-mark">F</span>IFAI 絵コンテ v2</div>
         <nav aria-label="ページ内メニュー">
+          <a href="#review-guide">FB方法</a>
           <a href="#keyframes">キー絵</a>
           <a href="#rules">画作り</a>
           <a href="#storyboard">秒数</a>
           <a href="#copy">コピー</a>
-          <a href="#feedback">FB観点</a>
+          <a href="#feedback">FB欄</a>
         </nav>
       </div>
     </header>
@@ -598,6 +761,7 @@
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#storyboard">絵コンテを見る</a>
+              <a class="button" href="#feedback">FBテンプレへ</a>
               <a class="button" href="https://vimeo.com/reviews/cb0c817f-9d3a-4806-b368-cbe594e37c38/videos/1197648606">現動画レビュー</a>
               <a class="button" href="https://karoooomecakes.wixsite.com/game">参考サイト</a>
             </div>
@@ -607,6 +771,50 @@
               <img src="./assets/opening.png" alt="IFAI都市伝説風ドット絵の冒頭キー絵" />
             </figure>
             <div class="dialogue">また、市場に変なサインが出てる。</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="review-guide">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>FBの返し方</h2>
+            <p class="note">
+              <span class="note-line">全部を細かく見る前に、</span>
+              <span class="note-line">まずこの3つだけ返してもらうと判断しやすい。</span>
+            </p>
+          </div>
+          <div class="review-grid">
+            <article class="review-card">
+              <span class="review-no">01</span>
+              <h3>この世界観で進めていい?</h3>
+              <p>都市伝説ADV風のドット絵が、IFAIの新しい見せ方としてワクワクするか。</p>
+              <div class="answer-scale">
+                <span>いける</span><span>調整</span><span>違う</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-no">02</span>
+              <h3>機能は伝わる?</h3>
+              <p>市況、セクター、AI評価、チャート分析、スマホアプリが見た人に残るか。</p>
+              <div class="answer-scale">
+                <span>伝わる</span><span>弱い</span><span>足す</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <span class="review-no">03</span>
+              <h3>怪異の強さは適切?</h3>
+              <p>UFOと赤いAIシグナルが、怖すぎず、でも引きとして強いか。</p>
+              <div class="answer-scale">
+                <span>ちょうど良い</span><span>怖い</span><span>薄い</span>
+              </div>
+            </article>
+          </div>
+          <div class="mini-guide">
+            <b>返し方の例</b>
+            <span>GOOD: 冒頭の夜のキオスクは好き</span>
+            <span>MORE: AI評価の機能はもっと具体的に見せたい</span>
+            <span>NG: 赤い異物は金融サービスとして怖すぎる</span>
           </div>
         </div>
       </section>
@@ -671,18 +879,18 @@
             </p>
           </div>
           <div class="scenes">
-            <article class="scene"><span class="time">0-3s</span><h3>未確認シグナル</h3><p>夜の市場キオスク。窓に株価、SNS、ニュース。UFOの光がスマホに落ちる。</p><p class="quote">また、市場に変なサインが出てる。</p></article>
-            <article class="scene"><span class="time">3-6s</span><h3>赤い異物</h3><p>赤いグリッチAIが出現。日本地図型のチャートに赤いピンが灯る。</p><p class="quote">上がる理由の痕跡だったっけ...?</p></article>
-            <article class="scene"><span class="time">6-9s</span><h3>IFAI起動</h3><p>スマホのIFAIアイコンがノイズを吸い、会話UIが立ち上がる。</p><p class="quote">IFAI、解析開始。</p></article>
-            <article class="scene"><span class="time">9-13s</span><h3>市況解体</h3><p>米国市場、為替、金利、ニュースの紙片が壁に貼られ、不要情報が剥がれる。</p><p class="quote">今朝見るべき材料だけ、残す。</p></article>
-            <article class="scene"><span class="time">13-17s</span><h3>新しい地図</h3><p>壁面に日本地図型ヒートマップ。強いセクターだけ鈍く発光する。</p><p class="quote">市場の地図が、見える。</p></article>
-            <article class="scene"><span class="time">17-22s</span><h3>銘柄カルテ</h3><p>決算、チャート、SNS、ニュースが銘柄ごとの調査ファイルへ閉じる。</p><p class="quote">一枚のカルテへ。</p></article>
-            <article class="scene"><span class="time">22-26s</span><h3>AI評価</h3><p>赤いシグナルがスコアを指差す。IFAI評価が大きくポップ。</p><p class="quote">プロの視点を、AI評価に。</p></article>
-            <article class="scene"><span class="time">26-31s</span><h3>チャート尋問</h3><p>チャートが証言台のように表示され、AIが線を引きながら答える。</p><p class="quote">この上昇、なぜ?</p></article>
-            <article class="scene"><span class="time">31-35s</span><h3>比較検証</h3><p>2本のチャート線が重なり、疑惑の赤線が根拠のシアン線へ変わる。</p><p class="quote">比較すれば、見えてくる。</p></article>
-            <article class="scene"><span class="time">35-39s</span><h3>AIチーム</h3><p>小AIたちがニュース、決算、SNS、保有を解析して中央のブリーフに集める。</p><p class="quote">点が、つながる。</p></article>
-            <article class="scene"><span class="time">39-42s</span><h3>スマホへ</h3><p>調査室の情報がスマホ画面に縮む。夜道でも同じUIが続く。</p><p class="quote">外でも、調査は続く。</p></article>
-            <article class="scene"><span class="time">42-45s</span><h3>CTA</h3><p>暗転。IFAIロゴとURL/QR。最後だけ差し替えやすく設計。</p><p class="quote">機能紹介ウェビナーへ</p></article>
+            <article class="scene"><span class="time">0-3s</span><h3>未確認シグナル</h3><p>夜の市場キオスク。窓に株価、SNS、ニュース。UFOの光がスマホに落ちる。</p><p class="quote">また、市場に変なサインが出てる。</p><p class="scene-ask"><b>FB:</b> 冒頭の引きとしてワクワクする?</p></article>
+            <article class="scene"><span class="time">3-6s</span><h3>赤い異物</h3><p>赤いグリッチAIが出現。日本地図型のチャートに赤いピンが灯る。</p><p class="quote">上がる理由の痕跡だったっけ...?</p><p class="scene-ask"><b>FB:</b> 赤いAIは怖すぎる? ちょうど良い?</p></article>
+            <article class="scene"><span class="time">6-9s</span><h3>IFAI起動</h3><p>スマホのIFAIアイコンがノイズを吸い、会話UIが立ち上がる。</p><p class="quote">IFAI、解析開始。</p><p class="scene-ask"><b>FB:</b> アプリ起動の意味は伝わる?</p></article>
+            <article class="scene"><span class="time">9-13s</span><h3>市況解体</h3><p>米国市場、為替、金利、ニュースの紙片が壁に貼られ、不要情報が剥がれる。</p><p class="quote">今朝見るべき材料だけ、残す。</p><p class="scene-ask"><b>FB:</b> 市況要約の機能に見える?</p></article>
+            <article class="scene"><span class="time">13-17s</span><h3>新しい地図</h3><p>壁面に日本地図型ヒートマップ。強いセクターだけ鈍く発光する。</p><p class="quote">市場の地図が、見える。</p><p class="scene-ask"><b>FB:</b> 「新しい地図」の比喩は刺さる?</p></article>
+            <article class="scene"><span class="time">17-22s</span><h3>銘柄カルテ</h3><p>決算、チャート、SNS、ニュースが銘柄ごとの調査ファイルへ閉じる。</p><p class="quote">一枚のカルテへ。</p><p class="scene-ask"><b>FB:</b> 銘柄ごとに材料がまとまる感じはある?</p></article>
+            <article class="scene"><span class="time">22-26s</span><h3>AI評価</h3><p>赤いシグナルがスコアを指差す。IFAI評価が大きくポップ。</p><p class="quote">プロの視点を、AI評価に。</p><p class="scene-ask"><b>FB:</b> ここはもっと実UIを見せるべき?</p></article>
+            <article class="scene"><span class="time">26-31s</span><h3>チャート尋問</h3><p>チャートが証言台のように表示され、AIが線を引きながら答える。</p><p class="quote">この上昇、なぜ?</p><p class="scene-ask"><b>FB:</b> AIに聞ける感じは伝わる?</p></article>
+            <article class="scene"><span class="time">31-35s</span><h3>比較検証</h3><p>2本のチャート線が重なり、疑惑の赤線が根拠のシアン線へ変わる。</p><p class="quote">比較すれば、見えてくる。</p><p class="scene-ask"><b>FB:</b> 比較機能はこの尺で必要?</p></article>
+            <article class="scene"><span class="time">35-39s</span><h3>AIチーム</h3><p>小AIたちがニュース、決算、SNS、保有を解析して中央のブリーフに集める。</p><p class="quote">点が、つながる。</p><p class="scene-ask"><b>FB:</b> AIがたくさんいる感じは出ている?</p></article>
+            <article class="scene"><span class="time">39-42s</span><h3>スマホへ</h3><p>調査室の情報がスマホ画面に縮む。夜道でも同じUIが続く。</p><p class="quote">外でも、調査は続く。</p><p class="scene-ask"><b>FB:</b> スマホアプリ訴求として足りる?</p></article>
+            <article class="scene"><span class="time">42-45s</span><h3>CTA</h3><p>暗転。IFAIロゴとURL/QR。最後だけ差し替えやすく設計。</p><p class="quote">機能紹介ウェビナーへ</p><p class="scene-ask"><b>FB:</b> ウェビナーへ行く理由が残る?</p></article>
           </div>
         </div>
       </section>
@@ -732,28 +940,85 @@
       <section id="feedback">
         <div class="wrap">
           <div class="section-head">
-            <h2>FBしてほしいところ</h2>
+            <h2>FB欄</h2>
             <p class="note">
-              <span class="note-line">共有先には、</span>
-              <span class="note-line">この4点だけ見てもらうと返事が集めやすい。</span>
+              <span class="note-line">迷ったらテンプレをコピーして返すだけ。</span>
+              <span class="note-line">細かいシーンFBは、気になった秒数だけでOK。</span>
             </p>
           </div>
           <div class="feedback">
             <div class="feedback-box">
-              <h3>方向性</h3>
+              <h3>まず聞きたいこと</h3>
               <ul>
-                <li>都市伝説ADV風はIFAIに合っているか</li>
-                <li>UFOは主役か、背景の怪異くらいが良いか</li>
-                <li>赤いAIシグナルは怖すぎないか、ちょうど良いか</li>
+                <li>この世界観で進めてよさそうか</li>
+                <li>株アプリの機能がちゃんと伝わりそうか</li>
+                <li>赤いAIシグナル / UFOの出し方は強すぎないか</li>
+                <li>一番ワクワクしたシーンはどこか</li>
               </ul>
             </div>
             <div class="feedback-box">
-              <h3>伝わり方</h3>
+              <h3>できれば見たいこと</h3>
               <ul>
-                <li>株アプリの機能が分かりにくくなりすぎていないか</li>
-                <li>「新しい地図」「AIが整理する」が伝わるか</li>
-                <li>CTA前にウェビナーへ行く理由が残るか</li>
+                <li>分かりにくい機能シーン</li>
+                <li>もっと実UIを見せた方がいい箇所</li>
+                <li>コピーで違和感がある言葉</li>
+                <li>削ってよさそうなシーン</li>
               </ul>
+            </div>
+          </div>
+          <div class="template-grid">
+            <div class="template-card">
+              <h3>返答テンプレ</h3>
+              <textarea id="feedbackTemplate" readonly>【全体】
+世界観: いける / 調整したい / 違う
+理由:
+
+【一番良いと思ったところ】
+
+【気になったところ】
+
+【機能の伝わり方】
+市況:
+セクター:
+AI評価:
+チャート分析:
+スマホ:
+
+【シーン別FB】
+0-3s:
+3-6s:
+6-9s:
+9-13s:
+13-17s:
+17-22s:
+22-26s:
+26-31s:
+31-35s:
+35-39s:
+39-42s:
+42-45s:
+
+【その他】</textarea>
+              <div class="copy-row">
+                <button class="copy-button" type="button" data-copy="feedbackTemplate">テンプレをコピー</button>
+                <span class="copy-status" id="feedbackTemplateStatus"></span>
+              </div>
+            </div>
+            <div class="template-card">
+              <h3>共有時の依頼文</h3>
+              <textarea id="shareTemplate" readonly>IFAIプロモーションムービーの新しい絵コンテ案です。
+都市伝説ADV風のドット絵で、市場情報をAIが解体する方向にしています。
+
+見てほしいのはこの3点です。
+1. この世界観で進めてよさそうか
+2. 株アプリの機能がちゃんと伝わりそうか
+3. 赤いAIシグナル / UFOの出し方は強すぎないか
+
+気になった秒数だけでもFBください。</textarea>
+              <div class="copy-row">
+                <button class="copy-button" type="button" data-copy="shareTemplate">共有文をコピー</button>
+                <span class="copy-status" id="shareTemplateStatus"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -765,5 +1030,26 @@
         IFAI promotion storyboard v2 / prepared for feedback sharing. Reference is used for broad visual grammar only; final artwork should remain original.
       </div>
     </footer>
+    <script>
+      document.querySelectorAll("[data-copy]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const targetId = button.getAttribute("data-copy");
+          const target = document.getElementById(targetId);
+          const status = document.getElementById(`${targetId}Status`);
+          if (!target) return;
+          try {
+            await navigator.clipboard.writeText(target.value);
+            if (status) status.textContent = "コピーしました";
+          } catch (error) {
+            target.focus();
+            target.select();
+            if (status) status.textContent = "選択しました";
+          }
+          window.setTimeout(() => {
+            if (status) status.textContent = "";
+          }, 1800);
+        });
+      });
+    </script>
   </body>
 </html>
